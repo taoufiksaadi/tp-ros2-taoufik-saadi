@@ -1,0 +1,15 @@
+# Dossiers générés par colcon : ne jamais les versionner
+build/
+install/
+log/
+
+# Python
+__pycache__/
+*.pyc
+
+# Éditeurs et fichiers temporaires
+.vscode/
+.idea/
+*.swp
+*~
+.obsidian/

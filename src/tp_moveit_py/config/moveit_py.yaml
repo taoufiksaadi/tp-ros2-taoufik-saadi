@@ -1,0 +1,30 @@
+# Configuration de MoveItPy, reprise du tutoriel officiel MoveItPy (moveit2_tutorials, licence BSD).
+
+planning_scene_monitor_options:
+  name: "planning_scene_monitor"
+  robot_description: "robot_description"
+  joint_state_topic: "/joint_states"
+  attached_collision_object_topic: "/moveit_cpp/planning_scene_monitor"
+  publish_planning_scene_topic: "/moveit_cpp/publish_planning_scene"
+  monitored_planning_scene_topic: "/moveit_cpp/monitored_planning_scene"
+  wait_for_initial_state_timeout: 10.0
+
+planning_pipelines:
+  pipeline_names: ["ompl", "pilz_industrial_motion_planner", "chomp"]
+
+# Paramètres de planification par défaut (planificateur OMPL)
+plan_request_params:
+  planning_attempts: 1
+  planning_pipeline: ompl
+  max_velocity_scaling_factor: 1.0
+  max_acceleration_scaling_factor: 1.0
+
+# Jeu de paramètres pour un mouvement en ligne droite (planificateur Pilz, mouvement LIN)
+pilz_lin:
+  plan_request_params:
+    planning_attempts: 1
+    planning_pipeline: pilz_industrial_motion_planner
+    planner_id: "LIN"
+    max_velocity_scaling_factor: 0.5
+    max_acceleration_scaling_factor: 0.5
+    planning_time: 1.0
